@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contentHash].js',
+    filename: '[name][contenthash].js',
     publicPath: '/',
     clean: true
   },
@@ -37,7 +37,7 @@ module.exports = {
       {
         test: /\.(css|scss|sass)$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader'
         ]
@@ -50,7 +50,7 @@ module.exports = {
       filename: './index.html'
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contentHash].css'
+      filename: '[name][contenthash].css'
     })
   ],
   optimization: {
